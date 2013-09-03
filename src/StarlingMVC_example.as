@@ -1,6 +1,6 @@
 package
 {	
-	import com.bitcrew.views.Game;
+	import com.chuckTheFrog.views.Game;
 	
 	import flash.desktop.NativeApplication;
 	import flash.display.Bitmap;
