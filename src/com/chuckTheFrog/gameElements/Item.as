@@ -11,7 +11,7 @@
  *  
  */
 
-package com.hsharma.hungryHero.gameElements
+package com.chuckTheFrog.gameElements
 {
 	import starling.display.Image;
 	import starling.display.Sprite;

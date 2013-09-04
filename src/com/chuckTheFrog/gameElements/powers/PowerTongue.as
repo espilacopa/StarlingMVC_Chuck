@@ -1,6 +1,7 @@
-package gameElements.powers
+package com.chuckTheFrog.gameElements.powers
 {
-	import gameElements.bugs.ICloudFlies;
+	import com.chuckTheFrog.gameElements.bugs.ICloudFlies;
+	
 
 	public class PowerTongue extends Power implements IPower
 	{

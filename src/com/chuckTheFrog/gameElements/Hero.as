@@ -11,7 +11,7 @@
  *  
  */
 
-package gameElements
+package com.chuckTheFrog.gameElements
 {
 	import flash.geom.Rectangle;
 	

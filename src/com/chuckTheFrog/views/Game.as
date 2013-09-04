@@ -67,8 +67,8 @@ package com.chuckTheFrog.views
 			///////////////////////////////////////////////////////////////////
 			
 			config = new StarlingMVCConfig();
-			config.eventPackages = ["com.bitcrew.events"];
-			config.viewPackages = ["com.bitcrew.views"];
+			config.eventPackages = ["com.chuckTheFrog.events"];
+			config.viewPackages = ["com.chuckTheFrog.views"];
 			
 			///////////////////////////////////////////////////////////////////
 			// GameObjectProvider defines the initial beans that are used

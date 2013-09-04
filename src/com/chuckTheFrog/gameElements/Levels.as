@@ -1,4 +1,4 @@
-package gameElements
+package com.chuckTheFrog.gameElements
 {
 	import feathers.data.ArrayListCollectionDataDescriptor;
 

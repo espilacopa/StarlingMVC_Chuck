@@ -11,7 +11,7 @@
  *  
  */
 
-package gameElements
+package com.chuckTheFrog.gameElements
 {
 	import starling.display.BlendMode;
 	import starling.display.Image;

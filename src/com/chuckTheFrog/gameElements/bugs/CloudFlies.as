@@ -90,12 +90,12 @@ package com.chuckTheFrog.gameElements.bugs
 		public function active():void
 		{		
 			addEventListener(Event.ENTER_FRAME,move)
-			_touchTest.addEventListener(TouchEvent.TOUCH,onTouchHandler)
+			if(touchable)_touchTest.addEventListener(TouchEvent.TOUCH,onTouchHandler)
 		}
 		public function unactive():void
 		{		
 			removeEventListener(Event.ENTER_FRAME,move)
-			_touchTest.removeEventListener(TouchEvent.TOUCH,onTouchHandler)
+			if(touchable)_touchTest.removeEventListener(TouchEvent.TOUCH,onTouchHandler)
 		}
 		private function move($e:Event):void
 		{

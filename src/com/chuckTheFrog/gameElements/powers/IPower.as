@@ -1,6 +1,6 @@
-package gameElements.powers
+package com.chuckTheFrog.gameElements.powers
 {
-	import gameElements.bugs.ICloudFlies;
+	import com.chuckTheFrog.gameElements.bugs.ICloudFlies;
 
 	public interface IPower
 	{
