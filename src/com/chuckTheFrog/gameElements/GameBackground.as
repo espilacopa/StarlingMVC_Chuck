@@ -13,6 +13,9 @@
 
 package com.chuckTheFrog.gameElements
 {
+	
+	import com.chuckTheFrog.views.Game;
+	
 	import starling.display.BlendMode;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -50,24 +53,14 @@ package com.chuckTheFrog.gameElements
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			
-			_bkg = new Image(Assets.getTexture("BgLayer1"));
-			var ratio:Number = _bkg.width/_bkg.height
-			/*if(Constants.STAGE_RATIO<1){
-				
-				_bkg.width = Constants.STAGE_WIDTH
-				_bkg.height= _bkg.width/ratio
-			}else{
-				_bkg.height = Constants.STAGE_HEIGHT
-				_bkg.width =  _bkg.height*ratio
-			}
-				*/
+			_bkg = new Image(Game.assetManager.getTexture("BgLayer1"));
 			_bkg.width = stage.stageWidth
 			_bkg.height = stage.stageHeight
 			
 			_bkg.blendMode = BlendMode.NONE;
 			this.addChild(_bkg);
 			
-			_bkg2 = new Image(Assets.getTexture("BgLayer2"));
+			_bkg2 = new Image(Game.assetManager.getTexture("BgLayer2"));
 			ratio = _bkg2.width/_bkg2.height
 			_bkg2.width = _bkg.width*0.70
 			_bkg2.height= _bkg2.width/ratio	
@@ -75,7 +68,7 @@ package com.chuckTheFrog.gameElements
 			_bkg2.x = stage.stageWidth-_bkg2.width
 			this.addChild(_bkg2);
 			
-			_bkg3 = new Image(Assets.getTexture("BgLayer3"));
+			_bkg3 = new Image(Game.assetManager.getTexture("BgLayer3"));
 			ratio = _bkg3.width/_bkg3.height
 			_bkg3.width = _bkg.width*0.80
 			_bkg3.height= _bkg3.width/ratio
@@ -83,9 +76,6 @@ package com.chuckTheFrog.gameElements
 			_bkg3.y = stage.stageHeight - _bkg3.height
 			_bkg3.x = stage.stageWidth - _bkg3.width
 			this.addChild(_bkg3);
-			// Start animating the background.
-			//this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
-		}
 		
 		/**
 		 * On every frame, animate each layer based on its parallax depth and hero's speed. 
