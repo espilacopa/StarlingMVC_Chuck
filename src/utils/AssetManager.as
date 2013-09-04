@@ -48,7 +48,8 @@ package utils
         private var mTextures:Dictionary;
         private var mAtlases:Dictionary;
         private var mSounds:Dictionary;
-        
+        private var mXML:Dictionary
+		
         /** helper objects */
         private var sNames:Vector.<String> = new <String>[];
         
@@ -63,6 +64,7 @@ package utils
             mTextures = new Dictionary();
             mAtlases = new Dictionary();
             mSounds = new Dictionary();
+            mXML = new Dictionary();
         }
         
         /** Disposes all contained textures. */
@@ -94,6 +96,15 @@ package utils
             }
         }
         
+		public function getXML(name:String):Texture
+		{
+			if (name in mXML) return mXML[name];
+			else
+			{
+				
+				return null;
+			}
+		}
         /** Returns all textures that start with a certain string, sorted alphabetically
          *  (especially useful for "MovieClip"). */
         public function getTextures(prefix:String="", result:Vector.<Texture>=null):Vector.<Texture>
@@ -232,6 +243,7 @@ package utils
             mTextures = new Dictionary();
             mAtlases = new Dictionary();
             mSounds = new Dictionary();
+			mXML = new Dictionary();
         }
         
         // queued adding
@@ -386,8 +398,11 @@ package utils
                         TextField.registerBitmapFont(new BitmapFont(fontTexture, xml));
                         removeTexture(name, false);
                     }
-                    else
-                        throw new Error("XML contents not recognized: " + rootNode);
+                    else {
+						trace(rootNode+"  "+xml.toXMLString())
+						mXML[rootNode]= xml
+					}
+                       // throw new Error("XML contents not recognized: " + rootNode);
                 }
             }
             

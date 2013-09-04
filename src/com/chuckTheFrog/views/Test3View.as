@@ -28,6 +28,8 @@ package com.chuckTheFrog.views
 		private var _currentPower:PowerTongue;
 		private var _hero:Hero;
 		private var _timer:TimerFrog;
+		private var _source:Quad;
+		private var _touch:Quad;
 			
 		[PostConstruct]
 		public function postConstruct():void
@@ -51,25 +53,25 @@ package com.chuckTheFrog.views
 			_hero.y = stage.stageHeight -newHeight-10
 			*/		
 			_hero.y = stage.stageHeight -_hero.height
-			_fliesCloud = new CloudFlies(stage.stageWidth-200,stage.stageHeight,Number(_level.@nbFlies))
+			_fliesCloud = new CloudFlies(stage.stageWidth-200,stage.stageHeight,Number(Game.assetManager.getXML("levels").@nbFlies))
 			_fliesCloud.x = 200;
 			_fliesCloud.y =  stage.stageHeight/2 - _fliesCloud.height/2;
 			_fliesCloud.active()
 			addChild(_fliesCloud)
-			_fliesCloud.addEventListener(GameEvent.HitFlie,tapFlie)
-			_fliesCloud.addEventListener(GameEvent.AllFliesHit,endGame)
-			
-			_timer = new TimerFrog()	
-			addChild(_timer)
+			//_fliesCloud.addEventListener(GameEvent.HitFlie,tapFlie)
+			//_fliesCloud.addEventListener(GameEvent.AllFliesHit,endGame)
 			/*
+			_timer = new TimerFrog()	
+			addChild(_timer)*/
+			
 			_source = new Quad(3,3,0xff)
 			_touch= new Quad(3,3,0xffff)
 			addChild(_source)
-			addChild(_touch)*/
+			addChild(_touch)
 			
 			
 			
-			addChild(Assets.factoryText(100, 100, "120", "Ubuntu", 80, Color.RED,HAlign.RIGHT,VAlign.BOTTOM))
+		//	addChild(Assets.factoryText(100, 100, "120", "Ubuntu", 80, Color.RED,HAlign.RIGHT,VAlign.BOTTOM))
 			;
 		}
 		

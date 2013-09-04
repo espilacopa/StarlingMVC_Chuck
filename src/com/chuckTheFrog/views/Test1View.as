@@ -34,6 +34,7 @@ package com.chuckTheFrog.views
 			Game.assetManager.enqueue(
 				Constants.appDir.resolvePath(formatString("assets/textures/{0}x", Constants.contentScaleFactor)),
 				Constants.appDir.resolvePath(formatString("assets/fonts/{0}x", Constants.contentScaleFactor)),
+				Constants.appDir.resolvePath("assets/xml"),
 				Constants.appDir.resolvePath("assets/audio")
 			);
 			

@@ -54,6 +54,7 @@ package com.chuckTheFrog.gameElements
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			
 			_bkg = new Image(Game.assetManager.getTexture("BgLayer1"));
+			var ratio:Number = _bkg.width/_bkg.height
 			_bkg.width = stage.stageWidth
 			_bkg.height = stage.stageHeight
 			
@@ -77,14 +78,10 @@ package com.chuckTheFrog.gameElements
 			_bkg3.x = stage.stageWidth - _bkg3.width
 			this.addChild(_bkg3);
 		
-		/**
-		 * On every frame, animate each layer based on its parallax depth and hero's speed. 
-		 * @param event
-		 * 
-		 */
-		private function onEnterFrame(event:Event):void
-		{
-			
+		
 		}
+	
 	}
 }
+	
+	

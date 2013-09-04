@@ -13,6 +13,8 @@
 
 package com.chuckTheFrog.gameElements
 {
+	import com.chuckTheFrog.views.Game;
+	
 	import flash.geom.Rectangle;
 	
 	import feathers.display.Scale9Image;
@@ -78,15 +80,15 @@ package com.chuckTheFrog.gameElements
 		 */
 		private function createHeroArt():void
 		{
-			_bkg = new Image(Assets.getAtlasTexture("nenuphare0000"))
+			_bkg = new Image(Game.assetManager.getTexture("nenuphare0000"))
 			this.addChild(_bkg);
-			_tongue = new Scale9Image(new Scale9Textures(Assets.getAtlasTexture("tongue0000"),new Rectangle(40,0,1,43)));
+			_tongue = new Scale9Image(new Scale9Textures(Game.assetManager.getTexture("tongue0000"),new Rectangle(40,0,1,43)));
 			_tongue.alpha =0
 			_initT = _tongue.width
 			_tongue.pivotX=40
 			this.addChild(_tongue);
 			
-			heroArt = new MovieClip(Assets.getAtlasTextures("FrogGame"), 2);
+			heroArt = new MovieClip(Game.assetManager.getTextures("FrogGame"), 2);
 			starling.core.Starling.juggler.add(heroArt);
 			heroArt.stop()
 			_bkg.y=heroArt.height-_bkg.height*.8
