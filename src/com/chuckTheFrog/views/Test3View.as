@@ -31,6 +31,11 @@ package com.chuckTheFrog.views
 		private var _source:Quad;
 		private var _touch:Quad;
 			
+		public function get fliesCloud():CloudFlies
+		{
+			return _fliesCloud;
+		}
+
 		[PostConstruct]
 		public function postConstruct():void
 		{
@@ -79,8 +84,11 @@ package com.chuckTheFrog.views
 		public function preDestroy():void
 		{						
 			// clean up
-			background.dispose();
-			backgroundSprite.dispose();
+			_bg.dispose();
+			_hero.dispose();
+			_fliesCloud.dispose();
+			_source.dispose();
+			_touch.dispose();
 		}
 	}
 }

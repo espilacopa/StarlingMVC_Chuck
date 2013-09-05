@@ -53,7 +53,7 @@ package com.chuckTheFrog.gameElements
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			
-			_bkg = new Image(Game.assetManager.getTexture("BgLayer1"));
+			_bkg = new Image(Game.assetManager.getTexture("gameBKG"));
 			var ratio:Number = _bkg.width/_bkg.height
 			_bkg.width = stage.stageWidth
 			_bkg.height = stage.stageHeight
@@ -61,7 +61,7 @@ package com.chuckTheFrog.gameElements
 			_bkg.blendMode = BlendMode.NONE;
 			this.addChild(_bkg);
 			
-			_bkg2 = new Image(Game.assetManager.getTexture("BgLayer2"));
+			_bkg2 = new Image(Game.assetManager.getTexture("gameBKG_Front"));
 			ratio = _bkg2.width/_bkg2.height
 			_bkg2.width = _bkg.width*0.70
 			_bkg2.height= _bkg2.width/ratio	
@@ -69,7 +69,7 @@ package com.chuckTheFrog.gameElements
 			_bkg2.x = stage.stageWidth-_bkg2.width
 			this.addChild(_bkg2);
 			
-			_bkg3 = new Image(Game.assetManager.getTexture("BgLayer3"));
+			_bkg3 = new Image(Game.assetManager.getTexture("gameBKG_layerTop"));
 			ratio = _bkg3.width/_bkg3.height
 			_bkg3.width = _bkg.width*0.80
 			_bkg3.height= _bkg3.width/ratio

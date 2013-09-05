@@ -96,12 +96,12 @@ package utils
             }
         }
         
-		public function getXML(name:String):Texture
+		public function getXML(name:String):XML
 		{
 			if (name in mXML) return mXML[name];
 			else
 			{
-				
+				trace("don't find : "+name)
 				return null;
 			}
 		}

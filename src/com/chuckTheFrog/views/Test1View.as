@@ -31,9 +31,10 @@ package com.chuckTheFrog.views
 			addChild(progressBar);
 			
 			// load in assets
+			trace(Constants.contentScaleFactor)
 			Game.assetManager.enqueue(
-				Constants.appDir.resolvePath(formatString("assets/textures/{0}x", Constants.contentScaleFactor)),
-				Constants.appDir.resolvePath(formatString("assets/fonts/{0}x", Constants.contentScaleFactor)),
+				Constants.appDir.resolvePath(formatString("assets/textures/{0}x", Constants.normalizedContentScaleFactor)),
+				Constants.appDir.resolvePath(formatString("assets/fonts/{0}x", Constants.normalizedContentScaleFactor)),
 				Constants.appDir.resolvePath("assets/xml"),
 				Constants.appDir.resolvePath("assets/audio")
 			);

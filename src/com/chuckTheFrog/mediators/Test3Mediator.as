@@ -24,7 +24,7 @@ package com.chuckTheFrog.mediators
 			trace("[Test3Mediator] Test3View Added");
 			
 			testAddView = new TestAddView();
-			eventMap.addMap(view.birdButton, Event.TRIGGERED, birdClicked);
+			eventMap.addMap(view.fliesCloud, Event.TRIGGERED, birdClicked);
 		}
 		
 		[ViewRemoved]

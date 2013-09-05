@@ -53,7 +53,7 @@ package com.chuckTheFrog.views
 			Constants.normalizedContentScaleFactor = Starling.current.contentScaleFactor < 1.5 ? 1 : 2;
 			
 			trace("[Engine] Stage: " + stage.stageWidth + "x" + stage.stageHeight);
-			trace("[Engine] Scale Factor: " + Starling.current.contentScaleFactor);
+			trace("[Engine] Scale Factor: " + Starling.current.contentScaleFactor+"  "+Constants.normalizedContentScaleFactor);
 			
 			///////////////////////////////////////////////////////////////////
 			// Init the asset manager

@@ -43,19 +43,19 @@ package
 			///////////////////////////////////////////////////////////////////////
 			// calculate aspect ratio
 			
-			Constants.stageWidth = 480;
-			Constants.stageHeight = 320;
+			Constants.stageWidth = stage.stageWidth;
+			Constants.stageHeight = stage.stageHeight;
 			Constants.isIPhone5Retina = false;
-			Constants.xOffsetLeft = -44;
+			//Constants.xOffsetLeft = -44;
 			Constants.xOffsetRight = 0;
 			
 			if(screenWidth == 1136) // iPhone 5 Retina
 			{
-				Constants.stageWidth = 568;
-				Constants.stageHeight = 320;
+				Constants.stageWidth = stage.stageWidth;
+				Constants.stageHeight = stage.stageHeight;
 				Constants.isIPhone5Retina = true;
 				Constants.xOffsetLeft = 0;
-				Constants.xOffsetRight = 88;
+				//Constants.xOffsetRight = 88;
 			}
 			
 			Constants.aspectRatio = Constants.stageHeight / Constants.stageWidth;
@@ -65,7 +65,7 @@ package
 			if (stage.fullScreenHeight / stage.fullScreenWidth < Constants.aspectRatio)
 			{
 				viewPort.height = screenHeight;
-				viewPort.width  = int(viewPort.height / Constants.aspectRatio);
+				viewPort.width  = screenWidth//int(viewPort.height / Constants.aspectRatio);
 				viewPort.x = int((screenWidth - viewPort.width) / 2);
 			}
 			else
