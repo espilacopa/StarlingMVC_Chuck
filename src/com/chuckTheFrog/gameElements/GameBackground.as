@@ -66,7 +66,8 @@ package com.chuckTheFrog.gameElements
 			_bkg2.width = _bkg.width*0.70
 			_bkg2.height= _bkg2.width/ratio	
 			_bkg2.blendMode = BlendMode.AUTO;
-			_bkg2.x = stage.stageWidth-_bkg2.width
+			_bkg2.y = Constants.stageHeight - _bkg2.height
+			_bkg2.x = Constants.stageWidth-_bkg2.width
 			this.addChild(_bkg2);
 			
 			_bkg3 = new Image(Game.assetManager.getTexture("gameBKG_layerTop"));
@@ -74,7 +75,6 @@ package com.chuckTheFrog.gameElements
 			_bkg3.width = _bkg.width*0.80
 			_bkg3.height= _bkg3.width/ratio
 			_bkg3.blendMode = BlendMode.AUTO;
-			_bkg3.y = stage.stageHeight - _bkg3.height
 			_bkg3.x = stage.stageWidth - _bkg3.width
 			this.addChild(_bkg3);
 		

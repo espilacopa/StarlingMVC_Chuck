@@ -27,28 +27,9 @@ package com.chuckTheFrog.assets
 	public class Assets
 	{
 	
-		private static var _levels:XML;
-		private static var _loader:URLLoader;
-		private static var _xml:XML;
 		
 		
 		
-		public static function get levels():XML
-		{
-			getLevels()
-			return _levels;
-		}
-		
-		private static function getLevels():void
-		{
-			if (_levels == null)
-			{
-				var ba:ByteArray = (new LevelsGameXML()) as ByteArray;
-				var s:String = ba.readUTFBytes( ba.length );
-				_levels = new XML( s );
-				
-			}
-		}
 		
 		
 		public static function factoryText($with:int, $heitgh:int, $text:String, $font:String, $size:int, $color:uint, $Halign:String,$VAlign:String):TextField

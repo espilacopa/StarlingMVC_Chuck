@@ -19,7 +19,7 @@ package com.chuckTheFrog.controllers
 			// set up code here
 			
 			//load the default view
-			viewManager.setView(Test1View);
+			viewManager.setView(SplashScreen);
 		}
 		
 		[EventHandler(event="GameEvent.CHANGEVIEW", properties="data")]

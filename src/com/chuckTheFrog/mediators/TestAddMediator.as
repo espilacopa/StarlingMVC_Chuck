@@ -1,7 +1,7 @@
 package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
-	import com.chuckTheFrog.views.Test2View;
+	import com.chuckTheFrog.views.Welcome;
 	import com.chuckTheFrog.views.TestAddView;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
@@ -23,7 +23,7 @@ package com.chuckTheFrog.mediators
 			this.view = view;
 			trace("[TestAddMediator] TestAddView Added");
 			
-			nextView = Test2View;
+			nextView = Welcome;
 			eventMap.addMap(view.returnBtn, Event.TRIGGERED, birdClicked);
 		}
 		

@@ -11,9 +11,9 @@ package com.chuckTheFrog.providers
 		{
 			beans = [new GameModel(),
 					new GameMediator(),
-					new Test1Mediator(),
-					new Test2Mediator(),
-					new Test3Mediator(),
+					new SplashMediator(),
+					new WelcomeMediator(),
+					new GameScreenMediator(),
 					new TestAddMediator(),
 					new GameController()];
 		}
