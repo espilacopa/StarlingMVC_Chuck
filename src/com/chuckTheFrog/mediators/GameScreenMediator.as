@@ -1,6 +1,8 @@
 package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
+	import com.chuckTheFrog.gameElements.powers.IPower;
+	import com.chuckTheFrog.models.GameModel;
 	import com.chuckTheFrog.views.GameScreen;
 	import com.chuckTheFrog.views.TestAddView;
 	import com.creativebottle.starlingmvc.events.EventMap;
@@ -10,7 +12,7 @@ package com.chuckTheFrog.mediators
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
 
-	public class GameScreenMediator
+	public class GameScreenMediator 
 	{
 		[Dispatcher]
 		public var dispatcher:EventDispatcher;
@@ -18,8 +20,12 @@ package com.chuckTheFrog.mediators
 		private var eventMap:EventMap = new EventMap();
 		private var view:GameScreen;
 		private var _testAddView:TestAddView;
-		private var _currentPower:Object;
+		private var _currentPower:IPower;
 		private var _nextView:Class;
+		
+		[Inject]
+		public var gameModel:GameModel;
+
 		
 		[ViewAdded]
 		public function viewAdded(view:GameScreen):void
@@ -31,6 +37,8 @@ package com.chuckTheFrog.mediators
 			eventMap.addMap(view.fliesCloud, GameEvent.HitFlie, tapFlie);
 			
 			eventMap.addMap(view.fliesCloud, GameEvent.AllFliesHit, endGame);
+			_currentPower = gameModel.mainPower
+			_nextView = gameModel.nextView
 			//_fliesCloud.addEventListener(GameEvent.HitFlie,tapFlie)
 			//_fliesCloud.addEventListener(GameEvent.AllFliesHit,endGame)
 		}
@@ -48,7 +56,7 @@ package com.chuckTheFrog.mediators
 		private function endGame($e:Event):void
 		{
 			trace("endGame")
-			dispatchEventWith(GameEvent.CHANGEVIEW, false, nextView)
+			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _testAddView)
 		}
 		
 		private function tapFlie($event:Event):void

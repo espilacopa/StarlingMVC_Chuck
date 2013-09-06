@@ -1,8 +1,10 @@
 package com.chuckTheFrog.controllers
 {
+	import com.chuckTheFrog.gameElements.powers.PowerTongue;
 	import com.chuckTheFrog.models.GameModel;
-	import com.chuckTheFrog.views.*;
+	import com.chuckTheFrog.views.SplashScreen;
 	import com.creativebottle.starlingmvc.views.ViewManager;
+	
 	import starling.display.Sprite;
 
 	public class GameController
@@ -20,6 +22,7 @@ package com.chuckTheFrog.controllers
 			
 			//load the default view
 			viewManager.setView(SplashScreen);
+			gameModel.mainPower = new PowerTongue()
 		}
 		
 		[EventHandler(event="GameEvent.CHANGEVIEW", properties="data")]
