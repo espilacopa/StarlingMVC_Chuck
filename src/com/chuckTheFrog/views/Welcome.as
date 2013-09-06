@@ -34,7 +34,6 @@ package com.chuckTheFrog.views
 			
 			fliesCloud.x = stage.stageWidth/2 - fliesCloud.width/2;
 			fliesCloud.y =  stage.stageHeight/2 - fliesCloud.height/2;
-			fliesCloud.touchable = false
 			fliesCloud.active()
 			addChild(fliesCloud)
 		}

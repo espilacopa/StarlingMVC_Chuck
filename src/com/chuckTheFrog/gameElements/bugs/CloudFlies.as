@@ -4,7 +4,6 @@ package com.chuckTheFrog.gameElements.bugs
 	import com.chuckTheFrog.gameElements.ennemies.Flie;
 	import com.chuckTheFrog.gameElements.ennemies.IEnnemies;
 	
-	
 	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -26,10 +25,11 @@ package com.chuckTheFrog.gameElements.bugs
 		protected var _isPressed: Boolean;
 		protected var _isRolledOver: Boolean;
 		
-		public function CloudFlies($with:int,$height:int,$nbFlies:int = 0)
+		public function CloudFlies($with:int,$height:int,$nbFlies:int = 0,$touchable:Boolean=false)
 		{
 			
 			super();
+			touchable=$touchable
 			_width = $with - $with*.08
 			_height = $height-$height*.08
 			_tabFlies = new Array()
@@ -119,6 +119,7 @@ package com.chuckTheFrog.gameElements.bugs
 			
 		}
 		protected function onTouchHandler(event: TouchEvent): void {
+			trace("[CloudFlies] touch")
 			_touch = event.getTouch(this);
 			if (_touch) {
 				switch (_touch.phase) {

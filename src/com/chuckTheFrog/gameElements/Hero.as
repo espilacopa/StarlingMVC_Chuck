@@ -106,6 +106,7 @@ package com.chuckTheFrog.gameElements
 		public function get state():int { return _state; }
 		
 		public function shoot($dist:Number,$ang:Number):void{
+			trace("[hero] shoot")
 			_tongue.visible = true
 			_distT = $dist+_tongue.pivotX+_tongue.x
 			_tongue.width = _distT

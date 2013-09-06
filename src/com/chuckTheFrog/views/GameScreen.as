@@ -60,7 +60,7 @@ package com.chuckTheFrog.views
 			*/		
 			_hero.y = stage.stageHeight -_hero.height
 				trace 
-			_fliesCloud = new CloudFlies(stage.stageWidth-200,stage.stageHeight,Number(Game.assetManager.getXML("levels").level.(@id=="0").@nbFlies))
+			_fliesCloud = new CloudFlies(stage.stageWidth-200,stage.stageHeight,Number(Game.assetManager.getXML("levels").level.(@id=="0").@nbFlies),true)
 			_fliesCloud.x = 200;
 			_fliesCloud.y =  stage.stageHeight/2 - _fliesCloud.height/2;
 			_fliesCloud.active()
