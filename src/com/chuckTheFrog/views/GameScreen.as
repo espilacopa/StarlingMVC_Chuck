@@ -8,6 +8,7 @@ package com.chuckTheFrog.views
 	import com.chuckTheFrog.gameElements.TimerFrog;
 	import com.chuckTheFrog.gameElements.bugs.CloudFlies;
 	import com.chuckTheFrog.gameElements.powers.PowerTongue;
+	import com.chuckTheFrog.models.GameModel;
 	
 	import starling.display.Button;
 	import starling.display.Quad;
@@ -16,6 +17,9 @@ package com.chuckTheFrog.views
 	
 	public class GameScreen extends Sprite
 	{
+		[Inject]
+		public var gameModel:GameModel;
+		
 		private var backgroundSprite:Sprite;
 		private var background:Quad;
 		public var birdButton:Button;
@@ -43,23 +47,16 @@ package com.chuckTheFrog.views
 			// add some content
 			
 			
-			_currentPower = new PowerTongue()
+			
+			gameModel.mainPower= new PowerTongue()
 			_bg = new GameBackground();
 			this.addChild(_bg);
 			
 			
 			_hero = new Hero();	
 			this.addChild(_hero);
-			/*
-			var newHeight:Number =_hero.height
-			if(_hero.height>(.4*stage.stageHeight)){
-			newHeight = _hero.height = _hero.height/2
-			_hero.width = _hero.width/2
-			}
-			_hero.y = stage.stageHeight -newHeight-10
-			*/		
+				
 			_hero.y = stage.stageHeight -_hero.height
-				trace 
 			_fliesCloud = new CloudFlies(stage.stageWidth-200,stage.stageHeight,Number(Game.assetManager.getXML("levels").level.(@id=="0").@nbFlies),true)
 			_fliesCloud.x = 200;
 			_fliesCloud.y =  stage.stageHeight/2 - _fliesCloud.height/2;

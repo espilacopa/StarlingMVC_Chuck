@@ -9,6 +9,7 @@ package com.chuckTheFrog.events
 		public static const HitFlie:String = "game.hitflie";
 		public static const AllFliesHit:String= "game.allflieshit";
 		public static const ENDGAME:String= "game.endgame";
+		public static var MAINSHOOTEND:String="game.mainshootend";
 		
 		private var mResult:Boolean;
 		

@@ -2,8 +2,10 @@ package com.chuckTheFrog.gameElements.powers
 {
 	import com.chuckTheFrog.gameElements.bugs.ICloudFlies;
 	
+	import starling.display.Sprite;
+	
 
-	public class Power implements IPower
+	public class Power extends Sprite implements IPower
 	{
 		protected var _impactPower:int
 		protected var _type:int
@@ -21,7 +23,7 @@ package com.chuckTheFrog.gameElements.powers
 			return _impactPower;
 		}
 
-		public function usePower($Cloud:ICloudFlies):void
+		public function usePower($Cloud:ICloudFlies,$dist:Number,$ang:Number):void
 		{
 		}
 	}

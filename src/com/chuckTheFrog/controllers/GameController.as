@@ -22,7 +22,6 @@ package com.chuckTheFrog.controllers
 			
 			//load the default view
 			viewManager.setView(SplashScreen);
-			gameModel.mainPower = new PowerTongue()
 		}
 		
 		[EventHandler(event="GameEvent.CHANGEVIEW", properties="data")]

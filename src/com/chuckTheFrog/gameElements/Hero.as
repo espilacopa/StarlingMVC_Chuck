@@ -13,6 +13,9 @@
 
 package com.chuckTheFrog.gameElements
 {
+	import com.chuckTheFrog.gameElements.powers.IPower;
+	import com.chuckTheFrog.gameElements.powers.Power;
+	import com.chuckTheFrog.models.GameModel;
 	import com.chuckTheFrog.views.Game;
 	
 	import flash.geom.Rectangle;
@@ -38,28 +41,19 @@ package com.chuckTheFrog.gameElements
 		/** Hero character animation. */
 		private var heroArt:MovieClip;
 		
-		private var _tongue:Scale9Image;
-		
+		[Inject]
+		public var gameModel:GameModel;
 		
 		/** State of the hero. */
 		private var _state:int;
-		private var _speedTongue:Number = 50
 		private var _bkg:Image;
-		private var _initT:Number;
 		private var _distT:Number;
 		
 		public function Hero()
 		{
 			super();
-			
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
-		
-		public function get tongue():Scale9Image
-		{
-			return _tongue;
-		}
-
 		/**
 		 * On added to stage. 
 		 * @param event
@@ -81,21 +75,16 @@ package com.chuckTheFrog.gameElements
 		private function createHeroArt():void
 		{
 			_bkg = new Image(Game.assetManager.getTexture("nenuphare0000"))
-			this.addChild(_bkg);
-			_tongue = new Scale9Image(new Scale9Textures(Game.assetManager.getTexture("tongue0000"),new Rectangle(40,0,1,43)));
-			_tongue.alpha =0
-			_initT = _tongue.width
-			_tongue.pivotX=40
-			this.addChild(_tongue);
 			
 			heroArt = new MovieClip(Game.assetManager.getTextures("FrogGame"), 2);
 			starling.core.Starling.juggler.add(heroArt);
 			heroArt.stop()
 			_bkg.y=heroArt.height-_bkg.height*.8
+			this.addChild(_bkg);
+			this.addChild(gameModel.mainPower);
 			this.addChild(heroArt);
-			_tongue.x = heroArt.width*.75;
-			_tongue.y = heroArt.height*.35;
-			trace( heroArt.height)
+			gameModel.mainPower.x = heroArt.width*.75;
+			gameModel.mainPower.y = heroArt.height*.35;
 		}
 		
 		/**
@@ -105,26 +94,12 @@ package com.chuckTheFrog.gameElements
 		 */
 		public function get state():int { return _state; }
 		
-		public function shoot($dist:Number,$ang:Number):void{
-			trace("[hero] shoot")
-			_tongue.visible = true
-			_distT = $dist+_tongue.pivotX+_tongue.x
-			_tongue.width = _distT
-			_tongue.rotation = $ang
+		public function shoot():void{
 			heroArt.currentFrame = 1		
-			addEventListener(Event.ENTER_FRAME,moveTongue)
 		}
-		
-		private function moveTongue($e:Event):void
-		{
-			_tongue.width -= _speedTongue
-			_tongue.alpha =	_tongue.width/_distT+.1	
-				if(_tongue.width<20){
-					_tongue.visible = false
-					heroArt.currentFrame = 0
-					removeEventListener(Event.ENTER_FRAME,moveTongue)	
-				
-				}
+		public function endShoot():void
+		{		
+			heroArt.currentFrame = 0
 		}
 		
 		/**

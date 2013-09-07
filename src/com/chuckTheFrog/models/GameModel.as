@@ -1,6 +1,8 @@
 package com.chuckTheFrog.models
 {
-	import com.chuckTheFrog.gameElements.powers.IPower;
+
+	import com.chuckTheFrog.gameElements.powers.Power;
+	import com.chuckTheFrog.gameElements.powers.PowerTongue;
 	import com.creativebottle.starlingmvc.binding.Bindings;
 	
 	public class GameModel
@@ -15,7 +17,7 @@ package com.chuckTheFrog.models
 		public var accuracy:int;
 		public var correctInARow:int;
 		public var powerUpActive:Boolean;
-		public var mainPower:IPower
+		public var mainPower:Power 
 		public var nextView:Class;
 	}
 }
