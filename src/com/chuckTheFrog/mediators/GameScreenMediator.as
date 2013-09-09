@@ -8,8 +8,14 @@ package com.chuckTheFrog.mediators
 	import com.chuckTheFrog.views.TestAddView;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
+	import flash.geom.Point;
+	
+	import starling.display.Quad;
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 
 	public class GameScreenMediator 
 	{
@@ -34,9 +40,9 @@ package com.chuckTheFrog.mediators
 			
 			_testAddView = new TestAddView();
 			eventMap.addMap(view.fliesCloud, GameEvent.HitFlie, tapFlie);
-			eventMap.addMap(view, GameEvent.MAINSHOOTEND, endMainShoot);
+			eventMap.addMap(gameModel.mainPower, GameEvent.MAINSHOOTEND, endMainShoot);
 			eventMap.addMap(view.fliesCloud, GameEvent.AllFliesHit, endGame);
-			gameModel.mainPower = new PowerTongue()
+			
 		}
 		
 		private function endMainShoot($e:Event):void
@@ -63,14 +69,28 @@ package com.chuckTheFrog.mediators
 		
 		private function tapFlie($event:Event):void
 		{
-			trace("[GameScreenMediator] tabFlies")
-			var px:Number = $event.data.globalX-(view.hero.x+gameModel.mainPower.x ) ;
-			var py:Number = $event.data.globalY-(gameModel.mainPower.y) ;
-			var rad:Number = Math.atan2(py, px);
-			var deg:Number = rad * (180 / Math.PI);
-			var dist:Number = Math.sqrt(px*px + py*py);
-			view.hero.shoot()
-			gameModel.mainPower.usePower(view.fliesCloud,dist,rad)
+			
+			var touch:Touch = $event.data as Touch;
+			if (touch)
+			{
+				var localPos:Point = touch.getLocation(view);
+				var px:Number = $event.data.globalX-(view.hero.x+gameModel.mainPower.x ) ;
+				var py:Number = $event.data.globalY-(view.hero.y+gameModel.mainPower.y) ;
+				var rad:Number = Math.atan2(py, px);
+				var deg:Number = rad * (180 / Math.PI);
+				var dist:Number = Math.sqrt(px*px + py*py);
+				view.hero.shoot()
+				gameModel.mainPower.usePower(view.fliesCloud,dist,rad)
+				/*
+				var source:Quad = new Quad(3,3,0xff)
+				var touchM:Quad = new Quad(3,3,0xffff)
+				view.addChild(source)
+				view.addChild(touchM)
+				touchM.x = $event.data.globalX
+				touchM.y = $event.data.globalY				
+				source.x = 	view.hero.x+gameModel.mainPower.x
+				source.y = 	view.hero.y+gameModel.mainPower.y*/
+			}
 			//dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, testAddView);
 		}
 	}

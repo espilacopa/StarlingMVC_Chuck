@@ -119,7 +119,7 @@ package com.chuckTheFrog.gameElements.bugs
 			
 		}
 		protected function onTouchHandler(event: TouchEvent): void {
-			trace("[CloudFlies] touch")
+			//trace("[CloudFlies] touch")
 			_touch = event.getTouch(this);
 			if (_touch) {
 				switch (_touch.phase) {

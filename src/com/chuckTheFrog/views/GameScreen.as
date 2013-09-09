@@ -44,11 +44,7 @@ package com.chuckTheFrog.views
 		[PostConstruct]
 		public function postConstruct():void
 		{
-			// add some content
-			
-			
-			
-			gameModel.mainPower= new PowerTongue()
+
 			_bg = new GameBackground();
 			this.addChild(_bg);
 			

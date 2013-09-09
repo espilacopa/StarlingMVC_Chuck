@@ -1,8 +1,10 @@
 package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
-	import com.chuckTheFrog.views.Welcome;
+	import com.chuckTheFrog.gameElements.powers.PowerTongue;
+	import com.chuckTheFrog.models.GameModel;
 	import com.chuckTheFrog.views.GameScreen;
+	import com.chuckTheFrog.views.Welcome;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
 	import starling.events.Event;
@@ -12,6 +14,9 @@ package com.chuckTheFrog.mediators
 	{
 		[Dispatcher]
 		public var dispatcher:EventDispatcher;
+		
+		[Inject]
+		public var gameModel:GameModel;
 		
 		private var eventMap:EventMap = new EventMap();
 		private var view:Welcome;
@@ -25,6 +30,7 @@ package com.chuckTheFrog.mediators
 			
 			nextView = GameScreen;
 			eventMap.addMap(view.birdButton, Event.TRIGGERED, birdClicked);
+			gameModel.mainPower = new PowerTongue()
 		}
 		
 		[ViewRemoved]

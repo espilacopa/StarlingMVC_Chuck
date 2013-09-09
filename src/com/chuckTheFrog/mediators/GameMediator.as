@@ -1,5 +1,6 @@
 package com.chuckTheFrog.mediators
 {
+	import com.chuckTheFrog.gameElements.powers.PowerTongue;
 	import com.chuckTheFrog.views.Game;
 
 	public class GameMediator
