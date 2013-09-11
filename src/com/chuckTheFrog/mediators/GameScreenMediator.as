@@ -67,9 +67,13 @@ package com.chuckTheFrog.mediators
 				//}
 			
 			_timer -= 1/fps;
-			trace(delta+"  "+fps+" "+_timer)
+		
 			view.timerFrog.setTimer(_timer)
-			
+			if(_timer < 1)endGame()
+		}
+		private function stop():void{
+			view.fliesCloud.unactive()
+			eventMap.removeAllMappedEvents();
 		}
 		private function start():void
 		{
@@ -94,9 +98,10 @@ package com.chuckTheFrog.mediators
 			trace("[GameScreenMediator] Test3View Removed");
 		}
 		
-		private function endGame($e:Event):void
+		private function endGame($e:Event=null):void
 		{
 			trace("endGame")
+			stop()
 			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _testAddView)
 		}
 		
