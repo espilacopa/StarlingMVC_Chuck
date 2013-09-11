@@ -47,7 +47,7 @@ package com.chuckTheFrog.gameElements.powers
 			_tongue.width = _distT
 			_tongue.rotation = $ang		
 			_tongue.alpha = 1
-			var tween:Tween = new Tween(_tongue, .3, Transitions.EASE_IN_OUT);
+			var tween:Tween = new Tween(_tongue, .1, Transitions.EASE_IN_OUT);
 			tween.animate("width", 0)
 			tween.fadeTo(0);    // equivalent to 'animate("alpha", 0)'
 			tween.onComplete = moveTongue

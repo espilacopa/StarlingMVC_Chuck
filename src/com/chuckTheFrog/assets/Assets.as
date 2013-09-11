@@ -27,7 +27,8 @@ package com.chuckTheFrog.assets
 	public class Assets
 	{
 	
-		
+		[Embed(source="../../../assets/fonts/Ubuntu-R.ttf", embedAsCFF="false", fontFamily="Ubuntu")]        
+		private static const UbuntuRegular:Class;
 		
 		
 		

@@ -31,6 +31,11 @@ package com.chuckTheFrog.views
 		private var _source:Quad;
 		private var _touch:Quad;
 			
+		public function get timerFrog():TimerFrog
+		{
+			return _timer;
+		}
+
 		public function get hero():Hero
 		{
 			return _hero;
@@ -56,7 +61,7 @@ package com.chuckTheFrog.views
 			_fliesCloud = new CloudFlies(stage.stageWidth-200,stage.stageHeight,Number(Game.assetManager.getXML("levels").level.(@id=="0").@nbFlies),true)
 			_fliesCloud.x = 200;
 			_fliesCloud.y =  stage.stageHeight/2 - _fliesCloud.height/2;
-			_fliesCloud.active()
+			
 			addChild(_fliesCloud)
 			//_fliesCloud.addEventListener(GameEvent.HitFlie,tapFlie)
 			//_fliesCloud.addEventListener(GameEvent.AllFliesHit,endGame)
