@@ -35,19 +35,17 @@ package com.chuckTheFrog.gameElements.powers
 			_type = 1
 			var textureTongu: Texture = Game.assetManager.getTexture("tongue0000")
 			_tongue = new Scale9Image(new Scale9Textures(textureTongu,new Rectangle((textureTongu.width*.75),0,1,textureTongu.height)));
-				trace("[tongePower] "+(textureTongu.width*.75)+"  "+textureTongu.height)
-			//	_tongue.alpha =0
+			_tongue.alpha =0
 			_tongue.pivotX=(textureTongu.width*.42)
 			addChild(_tongue)
 		}
 		override public function usePower($Cloud:ICloudFlies,$dist:Number,$ang:Number):void{
-			trace("[tongePower] shoot "+$dist+"  " +$ang)
 			_tongue.visible = true
 			_distT = $dist+_tongue.pivotX+_tongue.x
 			_tongue.width = _distT
 			_tongue.rotation = $ang		
 			_tongue.alpha = 1
-			var tween:Tween = new Tween(_tongue, .1, Transitions.EASE_IN_OUT);
+			var tween:Tween = new Tween(_tongue, .3, Transitions.EASE_IN_OUT);
 			tween.animate("width", 0)
 			tween.fadeTo(0);    // equivalent to 'animate("alpha", 0)'
 			tween.onComplete = moveTongue

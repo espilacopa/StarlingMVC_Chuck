@@ -30,27 +30,18 @@ package com.chuckTheFrog.assets
 		[Embed(source="../../../assets/fonts/Ubuntu-R.ttf", embedAsCFF="false", fontFamily="Ubuntu")]        
 		private static const UbuntuRegular:Class;
 		
-		
+		[Embed(source="../../../assets/fonts/BrushScriptStd.otf", embedAsCFF="false", fontFamily="BrushScriptStd")]        
+		private static const BrushScriptStd:Class;
 		
 		
 		public static function factoryText($with:int, $heitgh:int, $text:String, $font:String, $size:int, $color:uint, $Halign:String,$VAlign:String):TextField
 		{
 			
-			trace($with+"  "+$heitgh+"  "+$text+"  "+$font+"  "+$size+"  "+$color+"  "+$Halign+"  "+$VAlign)
 			var textField:TextField = new TextField($with, $heitgh, $text, $font, $size, $color);
 			
 			textField.hAlign = HAlign.RIGHT;  // horizontal alignment
 			//textField.border = true;
-			var offset:int = 10;
-			var ttFont:String = "Ubuntu";
-			var ttFontSize:int = 19; 
 			
-			var colorTF:TextField = new TextField(300, 80, 
-				"TextFields can have a border and a color. They can be aligned in different ways, ...", 
-				ttFont, ttFontSize);
-			colorTF.x = colorTF.y = offset;
-			colorTF.border = true;
-			colorTF.color = 0x333399;
 			
 			return textField
 		}

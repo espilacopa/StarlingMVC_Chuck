@@ -6,7 +6,7 @@ package com.chuckTheFrog.mediators
 	import com.chuckTheFrog.models.GameModel;
 	import com.chuckTheFrog.views.Game;
 	import com.chuckTheFrog.views.GameScreen;
-	import com.chuckTheFrog.views.TestAddView;
+	import com.chuckTheFrog.views.FinishScreen;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
 	import flash.events.TimerEvent;
@@ -28,7 +28,7 @@ package com.chuckTheFrog.mediators
 		
 		private var eventMap:EventMap = new EventMap();
 		private var view:GameScreen;
-		private var _testAddView:TestAddView;
+		private var _finishOverLay:FinishScreen;
 		private var _currentPower:IPower;
 		private var _nextView:Class;
 		
@@ -47,7 +47,7 @@ package com.chuckTheFrog.mediators
 			this.view = view;
 			trace("[GameScreenMediator] Test3View Added");
 			
-			_testAddView = new TestAddView();
+			_finishOverLay = new FinishScreen();
 			eventMap.addMap(view.fliesCloud, GameEvent.HitFlie, tapFlie);
 			eventMap.addMap(gameModel.mainPower, GameEvent.MAINSHOOTEND, endMainShoot);
 			eventMap.addMap(view.fliesCloud, GameEvent.AllFliesHit, endGame);
@@ -91,7 +91,7 @@ package com.chuckTheFrog.mediators
 		[ViewRemoved]
 		public function viewRemoved(view:GameScreen):void
 		{
-			_testAddView.dispose();
+			_finishOverLay.dispose();
 			eventMap.removeAllMappedEvents();
 			
 			this.view = null;
@@ -102,7 +102,7 @@ package com.chuckTheFrog.mediators
 		{
 			trace("endGame")
 			stop()
-			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _testAddView)
+			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _finishOverLay)
 		}
 		
 		private function tapFlie($event:Event):void

@@ -2,7 +2,7 @@ package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
 	import com.chuckTheFrog.views.Welcome;
-	import com.chuckTheFrog.views.TestAddView;
+	import com.chuckTheFrog.views.FinishScreen;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
 	import starling.events.Event;
@@ -14,11 +14,11 @@ package com.chuckTheFrog.mediators
 		public var dispatcher:EventDispatcher;
 		
 		private var eventMap:EventMap = new EventMap();
-		private var view:TestAddView;
+		private var view:FinishScreen;
 		private var nextView:Class;
 		
 		[ViewAdded]
-		public function viewAdded(view:TestAddView):void
+		public function viewAdded(view:FinishScreen):void
 		{
 			this.view = view;
 			trace("[TestAddMediator] TestAddView Added");
@@ -28,7 +28,7 @@ package com.chuckTheFrog.mediators
 		}
 		
 		[ViewRemoved]
-		public function viewRemoved(view:TestAddView):void
+		public function viewRemoved(view:FinishScreen):void
 		{	
 			nextView = null;
 			eventMap.removeAllMappedEvents();

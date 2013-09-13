@@ -19,7 +19,8 @@ package com.chuckTheFrog.gameElements
 			super();
 			_bkg = new Image(Game.assetManager.getTexture("bkgTimer0000"))
 			this.addChild(_bkg);
-			_timer = Assets.factoryText(200, 200, "132", "Ubuntu", 80, Color.RED,HAlign.LEFT,VAlign.TOP)
+			_timer = Assets.factoryText(70, 90, "132", "BrushScriptStd", 60, Color.WHITE,HAlign.LEFT,VAlign.TOP)
+			
 			addChild(_timer)
 		}
 		public function setTimer($time:int):void

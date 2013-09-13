@@ -5,7 +5,7 @@ package com.chuckTheFrog.views
 	import starling.display.Sprite;
 
 	
-	public class TestAddView extends Sprite
+	public class FinishScreen extends Sprite
 	{
 		private var birdSheet:Image;
 		public var returnBtn:Button;
@@ -17,10 +17,6 @@ package com.chuckTheFrog.views
 			birdSheet = new Image( Game.assetManager.getTexture("starling_sheet") );
 			addChild(birdSheet);
 			
-			returnBtn = new Button( Game.assetManager.getTexture("button_square") );
-			returnBtn.x = this.width * 0.5 - returnBtn.width * 0.5;
-			returnBtn.y = this.height * 0.5 - returnBtn.height * 0.5;
-			addChild(returnBtn);
 			
 			this.x = (Constants.stageWidth * 0.5) - this.width * 0.5 + 100;
 			this.y = (Constants.stageHeight * 0.5) - this.height * 0.5;
