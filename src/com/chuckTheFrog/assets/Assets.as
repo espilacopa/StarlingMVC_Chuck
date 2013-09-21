@@ -33,7 +33,8 @@ package com.chuckTheFrog.assets
 		[Embed(source="../../../assets/fonts/BrushScriptStd.otf", embedAsCFF="false", fontFamily="BrushScriptStd")]        
 		private static const BrushScriptStd:Class;
 		
-		
+		[Embed(source="../../../assets/fonts/CarterOne.ttf", embedAsCFF="false", fontFamily="CarterOne")]        
+		private static const CarterOne:Class;
 		public static function factoryText($with:int, $heitgh:int, $text:String, $font:String, $size:int, $color:uint, $Halign:String,$VAlign:String):TextField
 		{
 			

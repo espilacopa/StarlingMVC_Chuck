@@ -19,7 +19,7 @@ package com.chuckTheFrog.gameElements
 			super();
 			_bkg = new Image(Game.assetManager.getTexture("bkgTimer0000"))
 			this.addChild(_bkg);
-			_timer = Assets.factoryText(100, 100, "132", "BrushScriptStd", 60, Color.WHITE,HAlign.CENTER,VAlign.CENTER)
+			_timer = Assets.factoryText(100, 100, "132", "CarterOne", 60, Color.WHITE,HAlign.CENTER,VAlign.CENTER)
 			
 			addChild(_timer)
 		}
