@@ -16,6 +16,7 @@ package com.chuckTheFrog.mediators
 		[ViewRemoved]
 		public function viewRemoved(view:SplashScreen):void
 		{
+			
 			this.view = null;
 			trace("[Test1Mediator] Test1View Removed");
 		}

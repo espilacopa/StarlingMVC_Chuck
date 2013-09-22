@@ -14,7 +14,7 @@ package com.chuckTheFrog.providers
 					new SplashMediator(),
 					new WelcomeMediator(),
 					new GameScreenMediator(),
-					new TestAddMediator(),
+					new FinishOverlayMediator(),
 					new GameController()];
 		}
 	}

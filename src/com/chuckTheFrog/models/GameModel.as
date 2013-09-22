@@ -19,5 +19,6 @@ package com.chuckTheFrog.models
 		public var powerUpActive:Boolean;
 		public var mainPower:Power 
 		public var nextView:Class;
+		public var currentLevel:LevelModel
 	}
 }

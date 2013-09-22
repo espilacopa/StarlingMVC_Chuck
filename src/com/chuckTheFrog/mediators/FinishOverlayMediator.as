@@ -1,45 +1,43 @@
 package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
-	import com.chuckTheFrog.views.Welcome;
-	import com.chuckTheFrog.views.FinishScreen;
+	import com.chuckTheFrog.views.FinishOverlay;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
 
-	public class TestAddMediator
+	public class FinishOverlayMediator
 	{
 		[Dispatcher]
 		public var dispatcher:EventDispatcher;
 		
 		private var eventMap:EventMap = new EventMap();
-		private var view:FinishScreen;
-		private var nextView:Class;
+		private var view:FinishOverlay;
 		
 		[ViewAdded]
-		public function viewAdded(view:FinishScreen):void
+		public function viewAdded(view:FinishOverlay):void
 		{
 			this.view = view;
 			trace("[TestAddMediator] TestAddView Added");
 			
-			nextView = Welcome;
-			eventMap.addMap(view.returnBtn, Event.TRIGGERED, birdClicked);
+			eventMap.addMap(view.restartBtn, Event.TRIGGERED, restart);
 		}
 		
 		[ViewRemoved]
-		public function viewRemoved(view:FinishScreen):void
+		public function viewRemoved(view:FinishOverlay):void
 		{	
-			nextView = null;
 			eventMap.removeAllMappedEvents();
 			
 			this.view = null;
 			trace("[TestAddMediator] TestAddView Removed");
 		}
 		
-		private function birdClicked(e:Event):void
+		private function restart(e:Event):void
 		{
-			dispatcher.dispatchEventWith(GameEvent.CHANGEVIEW, false, nextView);
+			trace("restart")
+			dispatcher.dispatchEventWith(GameEvent.RESTART, true);
+			
 		}
 	}
 }

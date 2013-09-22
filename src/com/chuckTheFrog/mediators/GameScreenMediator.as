@@ -2,24 +2,17 @@ package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
 	import com.chuckTheFrog.gameElements.powers.IPower;
-	import com.chuckTheFrog.gameElements.powers.PowerTongue;
 	import com.chuckTheFrog.models.GameModel;
-	import com.chuckTheFrog.views.Game;
+	import com.chuckTheFrog.views.FinishOverlay;
 	import com.chuckTheFrog.views.GameScreen;
-	import com.chuckTheFrog.views.FinishScreen;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
-	import flash.events.TimerEvent;
 	import flash.geom.Point;
-	import flash.utils.Timer;
 	import flash.utils.getTimer;
 	
-	import starling.display.Quad;
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
 	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
 
 	public class GameScreenMediator 
 	{
@@ -28,7 +21,7 @@ package com.chuckTheFrog.mediators
 		
 		private var eventMap:EventMap = new EventMap();
 		private var view:GameScreen;
-		private var _finishOverLay:FinishScreen;
+		private var _finishOverLay:FinishOverlay;
 		private var _currentPower:IPower;
 		private var _nextView:Class;
 		
@@ -47,7 +40,6 @@ package com.chuckTheFrog.mediators
 			this.view = view;
 			trace("[GameScreenMediator] Test3View Added");
 			
-			_finishOverLay = new FinishScreen();
 			eventMap.addMap(view.fliesCloud, GameEvent.HitFlie, tapFlie);
 			eventMap.addMap(gameModel.mainPower, GameEvent.MAINSHOOTEND, endMainShoot);
 			eventMap.addMap(view.fliesCloud, GameEvent.AllFliesHit, endGame);
@@ -77,7 +69,7 @@ package com.chuckTheFrog.mediators
 		}
 		private function start():void
 		{
-			_timer = int(Game.assetManager.getXML("levels").level.(@id=="0").@timer)
+			_timer = int(gameModel.currentLevel.timer)
 			view.fliesCloud.active()
 			last = getTimer()
 			eventMap.addMap(view, Event.ENTER_FRAME, updateTimer);
@@ -100,9 +92,12 @@ package com.chuckTheFrog.mediators
 		
 		private function endGame($e:Event=null):void
 		{
-			trace("endGame")
+			
+			_finishOverLay = new FinishOverlay();
 			stop()
 			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _finishOverLay)
+			
+			eventMap.addMap(dispatcher,GameEvent.RESTART, restart);
 		}
 		
 		private function tapFlie($event:Event):void
@@ -130,6 +125,16 @@ package com.chuckTheFrog.mediators
 				source.y = 	view.hero.y+gameModel.mainPower.y*/
 			}
 			//dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, testAddView);
+		}
+		public function restart($event:Event):void
+		{
+			dispatcher.dispatchEventWith(GameEvent.REMOVEVIEW, true, _finishOverLay)
+			view.fliesCloud.restart()
+			eventMap.addMap(view.fliesCloud, GameEvent.HitFlie, tapFlie);
+			eventMap.addMap(gameModel.mainPower, GameEvent.MAINSHOOTEND, endMainShoot);
+			eventMap.addMap(view.fliesCloud, GameEvent.AllFliesHit, endGame);
+			view.fliesCloud.active()
+				start()
 		}
 	}
 }

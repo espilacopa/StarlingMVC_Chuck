@@ -1,5 +1,6 @@
 package com.chuckTheFrog.views
 {
+	import com.chuckTheFrog.events.GameEvent;
 	import com.creativebottle.starlingmvc.views.ViewManager;
 	
 	import starling.core.Starling;
@@ -51,7 +52,8 @@ package com.chuckTheFrog.views
 					Starling.juggler.delayCall(function():void
 					{
 						progressBar.removeFromParent(true);
-						viewManager.setView(Welcome, true);
+						//viewManager.setView(Welcome, true);
+						dispatcher.dispatchEventWith(GameEvent.ASSETSINIT,true)
 					}, 0.15);
 			});
 		}
@@ -59,7 +61,9 @@ package com.chuckTheFrog.views
 		[PreDestroy]
 		public function preDestroy():void
 		{
+			
 			// clean up	
+			progressBar.dispose()
 		}
 	}
 }

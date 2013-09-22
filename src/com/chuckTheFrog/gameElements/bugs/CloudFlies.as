@@ -24,6 +24,7 @@ package com.chuckTheFrog.gameElements.bugs
 		protected var _enable: Boolean = true;
 		protected var _isPressed: Boolean;
 		protected var _isRolledOver: Boolean;
+		private var _nbFlies:int;
 		
 		public function CloudFlies($with:int,$height:int,$nbFlies:int = 0,$touchable:Boolean=false)
 		{
@@ -33,13 +34,16 @@ package com.chuckTheFrog.gameElements.bugs
 			_width = $with - $with*.08
 			_height = $height-$height*.08
 			_tabFlies = new Array()
-			if ($nbFlies)addFlies($nbFlies)
+			_nbFlies = $nbFlies
+			addFlies(_nbFlies)
 			_touchTest = new Quad(_width,_height)
 			_touchTest.alpha =0
 			addChild(_touchTest)
 			
 		}
-
+		public function restart():void{
+			addFlies(_nbFlies)
+		}
 		public function get touch():Touch
 		{
 			return _touch;
