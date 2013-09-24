@@ -92,7 +92,9 @@ package com.chuckTheFrog.mediators
 		
 		private function endGame($e:Event=null):void
 		{
-			
+			gameModel.currentLevel.hitFlies = gameModel.currentLevel.nbFlies-view.fliesCloud.tabFlies.length
+			gameModel.currentLevel.valided = (view.fliesCloud.tabFlies.length==0)
+			gameModel.currentLevel.timeLeft = view.timerFrog.getTimer()
 			_finishOverLay = new FinishOverlay();
 			stop()
 			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _finishOverLay)

@@ -27,5 +27,11 @@ package com.chuckTheFrog.gameElements
 		{
 			_timer.text = $time.toString()
 		}
+		
+		public function getTimer():int
+		{
+			// TODO Auto Generated method stub
+			return _timer.text as int;
+		}
 	}
 }

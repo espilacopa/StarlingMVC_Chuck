@@ -41,6 +41,12 @@ package com.chuckTheFrog.gameElements.bugs
 			addChild(_touchTest)
 			
 		}
+
+		public function get tabFlies():Array
+		{
+			return _tabFlies;
+		}
+
 		public function restart():void{
 			if(_tabFlies.length) resetFlies()
 			addFlies(_nbFlies)
