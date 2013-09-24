@@ -15,6 +15,7 @@ package com.chuckTheFrog.assets
 	import flash.text.TextFormat;
 	import flash.utils.ByteArray;
 	
+	import starling.display.DisplayObject;
 	import starling.text.TextField;
 	import starling.utils.HAlign;
 	
@@ -50,20 +51,16 @@ package com.chuckTheFrog.assets
 			
 			return textField
 		}
-		public static function curvedText($text:String, $font:String, $size:int, $color:uint,$radius,$startAngle,$endAngle,$direction):Sprite{
+		public static function curvedText($text:String, $font:String, $size:int, $color:uint,$radius,$startAngle,$endAngle,$direction:String=CurvedText.DIRECTION_UP):CurvedText{
 			var tf:TextFormat = new TextFormat();
 			tf.font = $font;
 			tf.size = $size;
 			tf.color = $color;
-			var radius:Number = 100;
-			var startAngle:Number = -60;
-			var endAngle:Number = 60;
-			var direction:String = CurvedText.DIRECTION_UP;
-			var text:CurvedText = new CurvedText($text, $radius, $startAngle, $endAngle, direction, tf);
+			var text:CurvedText = new CurvedText($text, $radius, $startAngle, $endAngle, $direction, tf);
 			text.showCurve = true;
 			text.showLetterBorder = true;
 			text.draw();
-			return text as Sprite;
+			return text ;
 		}
 		
 	}

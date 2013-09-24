@@ -1,9 +1,15 @@
 package com.chuckTheFrog.views
 {
+	import com.chuckTheFrog.assets.Assets;
+	
 	import starling.display.Button;
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.utils.Color;
+	
+	import utils.CurvedText;
 
 	
 	public class FinishOverlay extends Sprite
@@ -25,6 +31,9 @@ package com.chuckTheFrog.views
 			addChild(menuBtn)
 			nextBtn = new Button(Game.assetManager.getTexture("nextBt0000") )
 			addChild(nextBtn)
+			
+			var text:CurvedText = Assets.curvedText("finish","CarterOne",16,Color.WHITE,10,-40,40)
+				addChild(text)
 			
 		}
 		
