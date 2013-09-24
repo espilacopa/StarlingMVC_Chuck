@@ -12,13 +12,16 @@ package com.chuckTheFrog.models
 		public var levelId:int
 		public var tabEnemies:Array
 		public var timer:int
+		public var score:int
+		public var hitFlies:int
+		public var timeLeft:int
+		
+		
 		
 		
 		public function setLevelFromXml($xml:XMLList):void
 		{
 			tabEnemies = new Array()
-			// TODO Auto Generated method stub
-			trace($xml.toXMLString())
 			nbFlies = $xml.@nbFlies
 			levelId = $xml.@id
 			timer = $xml.@timer
