@@ -5,6 +5,7 @@ package com.chuckTheFrog.views
 	import starling.display.Button;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.utils.Color;
@@ -32,7 +33,7 @@ package com.chuckTheFrog.views
 			nextBtn = new Button(Game.assetManager.getTexture("nextBt0000") )
 			addChild(nextBtn)
 			
-			var text:CurvedText = Assets.curvedText("finish","CarterOne",16,Color.WHITE,10,-40,40)
+			var text:DisplayObject = Assets.curvedText("finish","CarterOne",16,Color.WHITE,10,-40,40) as DisplayObject
 				addChild(text)
 			
 		}

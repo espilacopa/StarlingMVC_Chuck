@@ -457,7 +457,6 @@ package utils
             {
                 var url:String = rawAsset as String;
                 extension = url.split(".").pop().toLowerCase();
-                
                 var urlLoader:URLLoader = new URLLoader();
                 urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
                 urlLoader.addEventListener(IOErrorEvent.IO_ERROR, onIoError);

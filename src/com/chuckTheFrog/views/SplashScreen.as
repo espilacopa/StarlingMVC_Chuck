@@ -3,6 +3,8 @@ package com.chuckTheFrog.views
 	import com.chuckTheFrog.events.GameEvent;
 	import com.creativebottle.starlingmvc.views.ViewManager;
 	
+	import flash.filesystem.File;
+	
 	import starling.core.Starling;
 	import starling.display.Sprite;
 	import starling.events.EventDispatcher;
@@ -32,14 +34,26 @@ package com.chuckTheFrog.views
 			addChild(progressBar);
 			
 			// load in assets
+			var imageDirectory:File = File.applicationStorageDirectory.resolvePath("atlas");
 			trace(Constants.contentScaleFactor)
-			Game.assetManager.enqueue(
-				Constants.appDir.resolvePath(formatString("assets/textures/{0}x", Constants.normalizedContentScaleFactor)),
-				Constants.appDir.resolvePath(formatString("assets/fonts/{0}x", Constants.normalizedContentScaleFactor)),
-				//Constants.appDir.resolvePath("assets/fonts"),
-				Constants.appDir.resolvePath("assets/xml"),
-				Constants.appDir.resolvePath("assets/audio")
-			);
+			if(imageDirectory.exists){
+				Game.assetManager.enqueue(
+					File.applicationStorageDirectory.resolvePath(formatString("atlas/{0}x", Constants.normalizedContentScaleFactor)),
+				//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
+					//Constants.appDir.resolvePath("assets/fonts"),
+					File.applicationStorageDirectory.resolvePath("atlas/xml"),
+					File.applicationStorageDirectory.resolvePath("atlas/audio")
+				);
+			}else{
+				Game.assetManager.enqueue(
+					"http://www.espilacopa.com/atlas/"+Constants.normalizedContentScaleFactor+"x",
+					//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
+					//Constants.appDir.resolvePath("assets/fonts"),
+					("http://www.espilacopa.com/atlas/xml"),
+					("http://www.espilacopa.com/atlas/audio")
+				);
+			}
+			
 			
 			Game.assetManager.loadQueue(function onProgress(ratio:Number):void
 			{
