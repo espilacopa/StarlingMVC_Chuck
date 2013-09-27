@@ -1,5 +1,6 @@
 package com.chuckTheFrog.views
 {
+	import com.chuckTheFrog.assets.Assets;
 	import com.chuckTheFrog.events.GameEvent;
 	import com.creativebottle.starlingmvc.views.ViewManager;
 	
@@ -10,12 +11,14 @@ package com.chuckTheFrog.views
 	import starling.events.EventDispatcher;
 	import starling.utils.formatString;
 	
+	import utils.AssetManager;
 	import utils.ProgressBar;
 	
 	public class SplashScreen extends Sprite
 	{
+		private var _init:Boolean = true;
 		private var progressBar:ProgressBar;
-		
+			
 		[Inject]
 		public var viewManager:ViewManager;
 		
@@ -34,9 +37,10 @@ package com.chuckTheFrog.views
 			addChild(progressBar);
 			
 			// load in assets
-			var imageDirectory:File = File.applicationStorageDirectory.resolvePath("atlas");
-			trace(Constants.contentScaleFactor)
+			var imageDirectory:File = File.applicationStorageDirectory.resolvePath("atlas2");
+			trace(Constants.contentScaleFactor+"  "+imageDirectory.exists)
 			if(imageDirectory.exists){
+				_init = false
 				Game.assetManager.enqueue(
 					File.applicationStorageDirectory.resolvePath(formatString("atlas/{0}x", Constants.normalizedContentScaleFactor)),
 				//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
@@ -46,11 +50,12 @@ package com.chuckTheFrog.views
 				);
 			}else{
 				Game.assetManager.enqueue(
-					"http://www.espilacopa.com/atlas/"+Constants.normalizedContentScaleFactor+"x",
+					"http://www.espilacopa.com/atlas/asset.xml"
+					//"http://www.espilacopa.com/atlas/"+Constants.normalizedContentScaleFactor+"x",
 					//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
 					//Constants.appDir.resolvePath("assets/fonts"),
-					("http://www.espilacopa.com/atlas/xml"),
-					("http://www.espilacopa.com/atlas/audio")
+					//("http://www.espilacopa.com/atlas/xml"),
+					//("http://www.espilacopa.com/atlas/audio")
 				);
 			}
 			
@@ -62,13 +67,16 @@ package com.chuckTheFrog.views
 				// a progress bar should always show the 100% for a while,
 				// so we show the main menu only after a short delay. 
 				
-				if (ratio == 1)
+				if (ratio == 1 && !_init)
 					Starling.juggler.delayCall(function():void
 					{
 						progressBar.removeFromParent(true);
 						//viewManager.setView(Welcome, true);
 						dispatcher.dispatchEventWith(GameEvent.ASSETSINIT,true)
 					}, 0.15);
+				else {
+					trace (Game.assetManager.getXML('asset'))
+				}
 			});
 		}
 		
