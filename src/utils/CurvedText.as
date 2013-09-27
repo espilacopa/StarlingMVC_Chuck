@@ -1,14 +1,16 @@
 package utils  {
 	
-	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
 	import flash.geom.Rectangle;
-	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
-	public class CurvedText extends MovieClip {
+	import starling.display.MovieClip;
+	import starling.display.Shape;
+	import starling.display.Sprite;
+	import starling.text.TextField;
+	
+	public class CurvedText extends Sprite {
 		
 		public static const DIRECTION_UP:String = "up";
 		public static const DIRECTION_DOWN:String = "down";
@@ -16,7 +18,7 @@ package utils  {
 		public var showLetterBorder:Boolean = false;
 		public var showCurve:Boolean = false;
 		
-		private var _letterHolder:MovieClip;
+		private var _letterHolder:Shape;
 		private var _text:String;
 		private var _radius:Number;
 		private var _letters:Array;
@@ -28,6 +30,7 @@ package utils  {
 		private var _direction:String;
 		
 		public function CurvedText(text:String, radius:Number = 200, startAngle:Number = 0, endAngle:Number = 360, direction:String = "up", textFormat:TextFormat = null) {
+			super()
 			_text = text;
 			_radius = radius;
 			_startAngle = startAngle;
@@ -48,7 +51,7 @@ package utils  {
 			if(_letterHolder && contains(_letterHolder)) {
 				removeChild(_letterHolder);
 			}
-			_letterHolder = new MovieClip();
+			_letterHolder = new Shape();
 			addChild(_letterHolder);
 			
 			// adding letters
@@ -82,7 +85,7 @@ package utils  {
 			}
 			
 			// creating the field
-			var movie:MovieClip = new MovieClip();
+			var movie:Sprite = new Sprite();
 			var field:TextField = new TextField();
 			field.width = 10;
 			field.defaultTextFormat = _textFormat;
