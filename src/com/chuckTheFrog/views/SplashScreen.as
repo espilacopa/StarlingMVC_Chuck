@@ -36,15 +36,15 @@ package com.chuckTheFrog.views
 			// load in assets
 			var imageDirectory:File = File.applicationStorageDirectory.resolvePath("atlas");
 			trace(Constants.contentScaleFactor)
-			if(imageDirectory.exists){
+		//	if(imageDirectory.exists){
 				Game.assetManager.enqueue(
 					File.applicationStorageDirectory.resolvePath(formatString("atlas/{0}x", Constants.normalizedContentScaleFactor)),
 				//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
 					//Constants.appDir.resolvePath("assets/fonts"),
 					File.applicationStorageDirectory.resolvePath("atlas/xml"),
 					File.applicationStorageDirectory.resolvePath("atlas/audio")
-				);
-			}else{
+			);
+		/*	}else{
 				Game.assetManager.enqueue(
 					"http://www.espilacopa.com/atlas/"+Constants.normalizedContentScaleFactor+"x",
 					//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
@@ -53,7 +53,7 @@ package com.chuckTheFrog.views
 					("http://www.espilacopa.com/atlas/audio")
 				);
 			}
-			
+			*/
 			
 			Game.assetManager.loadQueue(function onProgress(ratio:Number):void
 			{
