@@ -11,7 +11,6 @@ package com.chuckTheFrog.views
 	import starling.events.EventDispatcher;
 	import starling.utils.formatString;
 	
-	import utils.AssetManager;
 	import utils.ProgressBar;
 	
 	public class SplashScreen extends Sprite
@@ -39,8 +38,8 @@ package com.chuckTheFrog.views
 			// load in assets
 			var imageDirectory:File = File.applicationStorageDirectory.resolvePath("atlas2");
 			trace(Constants.contentScaleFactor+"  "+imageDirectory.exists)
-			if(imageDirectory.exists){
-				_init = false
+			//if(imageDirectory.exists){
+			//	_init = false
 				Game.assetManager.enqueue(
 					File.applicationStorageDirectory.resolvePath(formatString("atlas/{0}x", Constants.normalizedContentScaleFactor)),
 				//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
@@ -48,7 +47,7 @@ package com.chuckTheFrog.views
 					File.applicationStorageDirectory.resolvePath("atlas/xml"),
 					File.applicationStorageDirectory.resolvePath("atlas/audio")
 				);
-			}else{
+			/*}else{
 				Game.assetManager.enqueue(
 					"http://www.espilacopa.com/atlas/asset.xml"
 					//"http://www.espilacopa.com/atlas/"+Constants.normalizedContentScaleFactor+"x",
@@ -57,7 +56,7 @@ package com.chuckTheFrog.views
 					//("http://www.espilacopa.com/atlas/xml"),
 					//("http://www.espilacopa.com/atlas/audio")
 				);
-			}
+			}*/
 			
 			
 			Game.assetManager.loadQueue(function onProgress(ratio:Number):void
