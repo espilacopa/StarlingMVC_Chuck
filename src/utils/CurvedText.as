@@ -88,10 +88,10 @@ package utils  {
 			var movie:Sprite = new Sprite();
 			var field:TextField = new TextField();
 			field.width = 10;
-			field.defaultTextFormat = _textFormat;
+			field.text = _textFormat;
 			field.embedFonts = true;
 			field.multiline = false;
-			field.autoSize = TextFieldAutoSize.CENTER;			
+			field.au = TextFieldAutoSize.CENTER;			
 			field.text = letter;
 			field.x = -field.width / 2;
 			field.y = -field.height / 2;
