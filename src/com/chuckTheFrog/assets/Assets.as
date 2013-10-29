@@ -51,7 +51,7 @@ package com.chuckTheFrog.assets
 			
 			return textField
 		}
-		public static function curvedText($text:String, $font:String, $size:int, $color:uint,$radius,$startAngle,$endAngle,$direction:String=CurvedText.DIRECTION_UP):CurvedText{
+		/*public static function curvedText($text:String, $font:String, $size:int, $color:uint,$radius,$startAngle,$endAngle,$direction:String=CurvedText.DIRECTION_UP):CurvedText{
 			var tf:TextFormat = new TextFormat();
 			tf.font = $font;
 			tf.size = $size;
@@ -61,7 +61,7 @@ package com.chuckTheFrog.assets
 			text.showLetterBorder = true;
 			text.draw();
 			return text ;
-		}
+		}*/
 		
 	}
 }

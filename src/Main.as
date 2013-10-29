@@ -12,8 +12,8 @@ package
 	
 	import starling.core.Starling;
 	
-	[SWF(frameRate="60", backgroundColor="#ffffff")]
-	public class StarlingMVC_example extends Sprite
+	[SWF(frameRate="30", backgroundColor="#ffffff")]
+	public class Main extends Sprite
 	{
 		private var mStarling:Starling;
 		private var screenWidth:int;
@@ -21,7 +21,7 @@ package
 		private var viewPort:Rectangle;
 		private var startupImage:Sprite;
 		
-		public function StarlingMVC_example()
+		public function Main()
 		{
 			super();
 			

@@ -47,8 +47,9 @@ package com.chuckTheFrog.gameElements.bugs
 			return _tabFlies;
 		}
 
-		public function restart():void{
+		public function restart($nbFlies:int=0):void{
 			if(_tabFlies.length) resetFlies()
+			if($nbFlies)_nbFlies = $nbFlies
 			addFlies(_nbFlies)
 		}
 		

@@ -92,14 +92,18 @@ package com.chuckTheFrog.mediators
 		
 		private function endGame($e:Event=null):void
 		{
-			gameModel.currentLevel.hitFlies = gameModel.currentLevel.nbFlies-view.fliesCloud.tabFlies.length
-			gameModel.currentLevel.valided = (view.fliesCloud.tabFlies.length==0)
-			gameModel.currentLevel.timeLeft = view.timerFrog.getTimer()
+			gameModel.currentLevel.hitFlies = gameModel.currentLevel.nbFlies-view.fliesCloud.tabFlies.length;
+			gameModel.currentLevel.valided = (view.fliesCloud.tabFlies.length==0);
+			gameModel.currentLevel.timeLeft = view.timerFrog.getTimer();
+			gameModel.currentLevel.stars =int( (gameModel.currentLevel.hitFlies*100/gameModel.currentLevel.nbFlies)/30);
+			
 			_finishOverLay = new FinishOverlay();
 			stop()
+			
 			dispatcher.dispatchEventWith(GameEvent.ADDVIEW, true, _finishOverLay)
 			
 			eventMap.addMap(dispatcher,GameEvent.RESTART, restart);
+			//eventMap.addMap(dispatcher,GameEvent.NEXT, next);
 		}
 		
 		private function tapFlie($event:Event):void
@@ -131,7 +135,7 @@ package com.chuckTheFrog.mediators
 		public function restart($event:Event):void
 		{
 			dispatcher.dispatchEventWith(GameEvent.REMOVEVIEW, true, _finishOverLay)
-			view.fliesCloud.restart()
+			view.fliesCloud.restart(gameModel.currentLevel.nbFlies)
 			eventMap.addMap(view.fliesCloud, GameEvent.HitFlie, tapFlie);
 			eventMap.addMap(gameModel.mainPower, GameEvent.MAINSHOOTEND, endMainShoot);
 			eventMap.addMap(view.fliesCloud, GameEvent.AllFliesHit, endGame);

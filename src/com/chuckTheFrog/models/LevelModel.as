@@ -16,16 +16,18 @@ package com.chuckTheFrog.models
 		public var hitFlies:int
 		public var timeLeft:int
 		
+		public var stars:int=0;
+		public var id:int;
 		
 		
 		
-		public function setLevelFromXml($xml:XMLList):void
+		public function setLevelFromXml($xml:XML,$id:int):void
 		{
 			tabEnemies = new Array()
 			nbFlies = $xml.@nbFlies
 			levelId = $xml.@id
 			timer = $xml.@timer
-			
+			id = $id
 			for each(var enemie:XML in $xml.tabEnemies){
 				tabEnemies.push({id:enemie.@id, nb:enemie.@nb})
 			}

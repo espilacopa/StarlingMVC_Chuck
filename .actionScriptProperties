@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="StarlingMVC_example.as" projectUUID="5a9b5f05-124c-4a6d-9677-17d409bda19e" version="11">
+<actionScriptProperties analytics="false" mainApplicationPath="Main.as" projectUUID="5a9b5f05-124c-4a6d-9677-17d409bda19e" version="11">
   <compiler additionalCompilerArguments="-locale en_US&#10;-swf-version=18&#10;-keep-as3-metadata+=Dispatcher&#10;-keep-as3-metadata+=EventHandler&#10;-keep-as3-metadata+=Inject&#10;-keep-as3-metadata+=Juggler&#10;-keep-as3-metadata+=PostConstruct&#10;-keep-as3-metadata+=ViewAdded&#10;-keep-as3-metadata+=ViewRemoved&#10;-keep-as3-metadata+=Bindings&#10;-keep-as3-metadata+=PreDestroy&#10;-keep-as3-metadata+=Execute" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="libs/Starling-Framework-1.3RC/starling/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="libs/Starling-starlingMVC-v1.1-12/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="libs/feathers/source"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="/Volumes/Documents/Projets/_SDK/feathers/source"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
@@ -43,7 +44,7 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="StarlingMVC_example.as">
+    <application path="Main.as">
       <airExcludes/>
     </application>
   </applications>
@@ -90,4 +91,3 @@
     </buildTarget>
   </buildTargets>
 </actionScriptProperties>
-

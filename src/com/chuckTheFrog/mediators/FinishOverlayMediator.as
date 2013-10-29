@@ -1,6 +1,7 @@
 package com.chuckTheFrog.mediators
 {
 	import com.chuckTheFrog.events.GameEvent;
+	import com.chuckTheFrog.models.GameModel;
 	import com.chuckTheFrog.views.FinishOverlay;
 	import com.creativebottle.starlingmvc.events.EventMap;
 	
@@ -12,6 +13,9 @@ package com.chuckTheFrog.mediators
 		[Dispatcher]
 		public var dispatcher:EventDispatcher;
 		
+		[Inject]
+		public var gameModel:GameModel;
+		
 		private var eventMap:EventMap = new EventMap();
 		private var view:FinishOverlay;
 		
@@ -22,6 +26,9 @@ package com.chuckTheFrog.mediators
 			trace("[TestAddMediator] TestAddView Added");
 			
 			eventMap.addMap(view.restartBtn, Event.TRIGGERED, restart);
+			eventMap.addMap(view.menuBtn, Event.TRIGGERED, menu);
+			eventMap.addMap(view.nextBtn, Event.TRIGGERED, next);
+			view.stars.currentFrame=(gameModel.currentLevel.stars)
 		}
 		
 		[ViewRemoved]
@@ -35,8 +42,17 @@ package com.chuckTheFrog.mediators
 		
 		private function restart(e:Event):void
 		{
-			trace("restart")
 			dispatcher.dispatchEventWith(GameEvent.RESTART, true);
+			
+		}
+		private function menu(e:Event):void
+		{
+			dispatcher.dispatchEventWith(GameEvent.MENU, true);
+			
+		}
+		private function next(e:Event):void
+		{
+			dispatcher.dispatchEventWith(GameEvent.NEXT, true);
 			
 		}
 	}

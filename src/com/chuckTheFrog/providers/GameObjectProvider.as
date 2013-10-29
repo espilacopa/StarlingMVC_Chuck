@@ -9,6 +9,7 @@ package com.chuckTheFrog.providers
 	{
 		public function GameObjectProvider()
 		{
+			trace(">>>la")
 			beans = [new GameModel(),
 					new GameMediator(),
 					new SplashMediator(),

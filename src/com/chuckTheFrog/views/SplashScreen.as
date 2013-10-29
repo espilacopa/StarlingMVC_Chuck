@@ -41,11 +41,11 @@ package com.chuckTheFrog.views
 			//if(imageDirectory.exists){
 			//	_init = false
 				Game.assetManager.enqueue(
-					File.applicationStorageDirectory.resolvePath(formatString("atlas/{0}x", Constants.normalizedContentScaleFactor)),
+					Constants.appDir.resolvePath(formatString("assets/textures/{0}x", Constants.normalizedContentScaleFactor)),
 				//	File.applicationStorageDirectory.resolvePath(formatString("atlas/fonts/{0}x", Constants.normalizedContentScaleFactor)),
 					//Constants.appDir.resolvePath("assets/fonts"),
-					File.applicationStorageDirectory.resolvePath("atlas/xml"),
-					File.applicationStorageDirectory.resolvePath("atlas/audio")
+					Constants.appDir.resolvePath("assets/xml"),
+					Constants.appDir.resolvePath("assets/audio")
 				);
 			/*}else{
 				Game.assetManager.enqueue(
@@ -66,11 +66,11 @@ package com.chuckTheFrog.views
 				// a progress bar should always show the 100% for a while,
 				// so we show the main menu only after a short delay. 
 				
-				if (ratio == 1 && !_init)
+				if (ratio == 1 )
 					Starling.juggler.delayCall(function():void
 					{
 						progressBar.removeFromParent(true);
-						//viewManager.setView(Welcome, true);
+						viewManager.setView(Welcome, true);
 						dispatcher.dispatchEventWith(GameEvent.ASSETSINIT,true)
 					}, 0.15);
 				else {

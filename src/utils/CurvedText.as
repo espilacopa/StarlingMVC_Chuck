@@ -90,8 +90,8 @@ package utils  {
 			field.width = 10;
 			field.text = _textFormat;
 			field.embedFonts = true;
-			field.multiline = false;
-			field.au = TextFieldAutoSize.CENTER;			
+			//field. = false;
+			field.hAlign = TextFieldAutoSize.CENTER;			
 			field.text = letter;
 			field.x = -field.width / 2;
 			field.y = -field.height / 2;

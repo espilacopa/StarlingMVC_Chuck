@@ -28,8 +28,8 @@ package com.chuckTheFrog.views
 		private var _currentPower:PowerTongue;
 		private var _hero:Hero;
 		private var _timer:TimerFrog;
-		private var _source:Quad;
-		private var _touch:Quad;
+		//private var _source:Quad;
+		//private var _touch:Quad;
 			
 		public function get timerFrog():TimerFrog
 		{
@@ -87,8 +87,8 @@ package com.chuckTheFrog.views
 			_bg.dispose();
 			_hero.dispose();
 			_fliesCloud.dispose();
-			_source.dispose();
-			_touch.dispose();
+		//	_source.dispose();
+		//	_touch.dispose();
 		}
 	}
 }

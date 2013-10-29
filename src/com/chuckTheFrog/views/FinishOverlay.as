@@ -1,16 +1,11 @@
 package com.chuckTheFrog.views
 {
-	import com.chuckTheFrog.assets.Assets;
 	
 	import starling.display.Button;
-	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.Event;
-	import starling.utils.Color;
-	
-	import utils.CurvedText;
 
 	
 	public class FinishOverlay extends Sprite
@@ -19,11 +14,12 @@ package com.chuckTheFrog.views
 		public var restartBtn:Button;
 		public var nextBtn:Button;
 		public var menuBtn:Button;
+		public var stars:MovieClip;
 					
 		[PostConstruct]
 		public function postConstruct():void
 		{
-			// add some content
+			
 			birdSheet = new Image( Game.assetManager.getTexture("finishBkg0000") );
 			addChild(birdSheet);
 			restartBtn = new Button(Game.assetManager.getTexture("restartBt0000") )
@@ -32,9 +28,8 @@ package com.chuckTheFrog.views
 			addChild(menuBtn)
 			nextBtn = new Button(Game.assetManager.getTexture("nextBt0000") )
 			addChild(nextBtn)
-			
-			var text:DisplayObject = Assets.curvedText("finish","CarterOne",16,Color.WHITE,10,-40,40) as DisplayObject
-				addChild(text)
+			stars= new MovieClip( Game.assetManager.getTextures("stars") );
+			addChild(stars);
 			
 		}
 		
@@ -56,6 +51,9 @@ package com.chuckTheFrog.views
 		{
 			
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			
+			stars.x = this.width/2 - stars.width/2
+			stars.y = 50
 			restartBtn.y = nextBtn.y = menuBtn.y = birdSheet.height - restartBtn.height*.8
 			var indent:Number = (birdSheet.width-restartBtn.width/2)/4
 			restartBtn.x = indent

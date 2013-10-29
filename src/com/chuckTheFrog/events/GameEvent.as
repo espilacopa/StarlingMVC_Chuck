@@ -15,6 +15,8 @@ package com.chuckTheFrog.events
 		public static const ASSETSINIT:String="game.assetsinit";
 		public static const RESTART:String="game.restart";
 		public static var REMOVEVIEW:String="game.removeView";
+		public static var MENU:String="game.menu";
+		public static var NEXT:String="game.next";
 		
 		public function GameEvent(type:String, result:Boolean, bubbles:Boolean=false)
 		{
