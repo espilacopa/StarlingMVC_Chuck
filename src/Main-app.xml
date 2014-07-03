@@ -13,21 +13,10 @@
 			the application. Optional.
 -->
 
-	<!-- A universally unique application identifier. Must be unique across all AIR applications.
-	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>StarlingMVC.example</id>
-
-	<!-- Used as the filename for the application. Required. -->
-	<filename>StarlingMVC_example</filename>
-
-	<!-- The name that is displayed in the AIR application installer. 
-	May have multiple values for each language. See samples or xsd schema file. Optional. -->
-	<name>StarlingMVC_example</name>
-	
-	<!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
-	Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
-	An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5 . -->
-	<versionNumber>0.0.0</versionNumber>
+	<id>com.espilacopa.starling.ChuckTheFrog</id> <!-- Bundle Identifier. Required. -->
+    <filename>ChuckTheFrog</filename> <!-- Used as the filename for the application. Required. -->
+    <name>Chuck The Frog</name> <!-- The name that is displayed below the app icon. -->
+    <versionNumber>0.0.1</versionNumber> <!-- Required. -->
 		         
 	<!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
 	<!-- <versionLabel></versionLabel> -->
@@ -152,7 +141,11 @@
 		<image512x512></image512x512>
 		<image1024x1024></image1024x1024>
 	</icon> -->
-
+	<icon>
+        <image57x57>icon57.png</image57x57>
+        <image72x72>icon72.png</image72x72>
+        <image114x114>icon114.png</image114x114>
+    </icon>
 	<!-- Whether the application handles the update when a user double-clicks an update version
 	of the AIR file (true), or the default AIR application installer handles the update (false).
 	Optional. Default false. -->
