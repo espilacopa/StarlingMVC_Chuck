@@ -65,7 +65,7 @@ package com.chuckTheFrog.views
 				
 				// a progress bar should always show the 100% for a while,
 				// so we show the main menu only after a short delay. 
-				
+				trace("Game.assetManager.loadQueue "+ratio)
 				if (ratio == 1 )
 					Starling.juggler.delayCall(function():void
 					{
@@ -74,7 +74,7 @@ package com.chuckTheFrog.views
 						dispatcher.dispatchEventWith(GameEvent.ASSETSINIT,true)
 					}, 0.15);
 				else {
-					trace (Game.assetManager.getXML('asset'))
+					//trace (Game.assetManager.getXML('asset'))
 				}
 			});
 		}

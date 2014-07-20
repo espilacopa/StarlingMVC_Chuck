@@ -456,6 +456,7 @@ package utils
             else if (rawAsset is String)
             {
                 var url:String = rawAsset as String;
+				trace("rawAsset_url"+url)
                 extension = url.split(".").pop().toLowerCase();
                 var urlLoader:URLLoader = new URLLoader();
                 urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
